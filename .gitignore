@@ -51,7 +51,8 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-# *.iml
+*.iml
+*.log
 # modules.xml
 # .idea/misc.xml
 # *.ipr
