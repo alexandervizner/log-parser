@@ -4,7 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [1.0.0] - 2017-10-16
+## [0.0.1] - 2017-10-16
 ### Changed
 
-- Initial commit 
+- Initial commit
+- General adjustments of the project
+ 
