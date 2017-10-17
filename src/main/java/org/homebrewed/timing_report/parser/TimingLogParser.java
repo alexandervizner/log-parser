@@ -4,6 +4,7 @@ import org.homebrewed.timing_report.matcher.Matcher;
 import org.homebrewed.timing_report.matcher.RequestMatcher;
 import org.homebrewed.timing_report.statistic.RequestsAverageDurationStatistic;
 import org.homebrewed.timing_report.statistic.RequestsHourlyStatistic;
+import org.homebrewed.timing_report.statistic.Statistic;
 import org.homebrewed.timing_report.util.Utils;
 
 import java.util.*;
@@ -61,7 +62,6 @@ public class TimingLogParser implements Parser {
             if (rm.validate(tokens[3])) {
 
                 Date date = Utils.toDatetime(tokens[0]);
-                assert date != null;
 
                 if (recalculate) {
                     recalculate = false;
@@ -110,6 +110,11 @@ public class TimingLogParser implements Parser {
         }
 
         Utils.debug("Count successful matches to be processed: " + ardStatsData.size());
+    }
+
+    @Override
+    public List<Statistic> getResults() {
+         return null;
     }
 
     public List<RequestsAverageDurationStatistic> getAvgReqDurationResults() {

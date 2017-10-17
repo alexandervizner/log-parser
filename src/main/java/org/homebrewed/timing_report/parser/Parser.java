@@ -1,6 +1,7 @@
 package org.homebrewed.timing_report.parser;
 
 import org.homebrewed.timing_report.matcher.Matcher;
+import org.homebrewed.timing_report.statistic.Statistic;
 
 import java.util.List;
 import java.util.Scanner;
@@ -14,4 +15,6 @@ public interface Parser {
     List<Matcher> getMatchers();
 
     void parse(Scanner scanner);
+
+    List<Statistic> getResults();
 }

@@ -51,16 +51,13 @@ public class Utils {
     }
 
     public static boolean isEmpty(String str) {
-        if (str == null || str.equals("") || str.trim().length() == 0) {
-            return true;
-        }
+        return str == null || str.equals("") || str.trim().length() == 0;
 
-        return false;
     }
 
-    public static Map<String, Integer> sortResults(Map<String, Integer> unsorted) {
+    public static Map<String, Integer> sortResults(Map<String, Integer> unsorted, boolean reversed) {
         return unsorted.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .sorted(Map.Entry.comparingByValue(reversed ? Comparator.reverseOrder() : Comparator.naturalOrder()))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
                         (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
@@ -91,7 +88,7 @@ public class Utils {
         try {
             DateFormat df = new SimpleDateFormat(DEFAULT_DATE_FORMAT, Locale.getDefault());
             return df.parse(datetime);
-        } catch (ParseException e) {
+        } catch (ParseException ignored) {
 
         }
         return null;
