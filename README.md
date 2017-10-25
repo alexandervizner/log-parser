@@ -5,20 +5,11 @@
 
 The parser is designed for parsing timing logs from web services(based on Struts 1/2).
 The target of current implementation wasn't performance but rather flexibility and readability of the solution.
-Indeed the measurements shows that timing log gathered within 1 day (24 hours) can be processed in about 60 - 80 sec.
 
-## Requirements, dependencies and compilation of the project 
+## Requirements
 
-Notice that Java 1.8 and Maven package manager installed are required. The project was build up with no 3rd party specific libraries excepting,
-maven shade plugin that placed into /3rdparty folder of the project. For compilation of the project you need to 
-install latest version of [Apache Maven](https://maven.apache.org/download.cgi) (available in /3rdparties too). 
-Aftre having all requirements installed navigate to root directory of the project and run the following commands from console:
-
-```shell
-mvn clean package
-```
-
-This command will create target folder that contains jar package.
+1. [JRE/JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+2. [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## Usage
 
@@ -48,13 +39,9 @@ app.debug=false
 ```
 
 ## Implementation note
-The main idea of implementation was simple and flexible solution. You need to implement matcher interface with logic inside and pass it to parser.
+The main idea of implementation is simple and flexible solution. You need to implement matcher interface with logic inside and pass it to parser.
 As result the parser object has collected statistics data into collection. I believe it can be (and should be imho) replaced by DAL to some database.
 Ideally implemented reports should be moved into separate web service that consumes data from the database and shares reports through REST API. 
-
-## Testing note
-Please notice that the current tests are not covered all the functionality and cases. Main purpose is just check some corner cases.
-Sure, normally such project should be covered by UT properly.
 
 ## Report
 
